@@ -1,27 +1,21 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ReversaTech</title>
+    <title>Nombre de tu Empresa - Recolección de Desechos</title>
 
     <style>
         /* Colores Pastel Claros de Muestra */
-        
-         :root {
-            --color-fondo: #f9f6f1;
-            /* Fondo principal muy claro (casi blanco) */
-            --color-primario: #a9d1c3;
-            /* Verde menta pastel */
-            --color-secundario: #f0c9c9;
-            /* Rosa claro pastel */
-            --color-texto: #333333;
-            /* Texto oscuro para contraste */
+        :root {
+            --color-fondo: #f9f6f1;       /* Fondo principal muy claro (casi blanco) */
+            --color-primario: #a9d1c3;    /* Verde menta pastel */
+            --color-secundario: #f0c9c9;  /* Rosa claro pastel */
+            --color-texto: #333333;       /* Texto oscuro para contraste */
             --color-texto-claro: #ffffff;
         }
+
         /* Estilos Generales */
-        
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -30,35 +24,33 @@
             color: var(--color-texto);
             line-height: 1.6;
         }
+
         /* --- Estilos del Header/Menú Superior --- */
-        
         .main-header {
             background-color: var(--color-primario);
             padding: 10px 50px;
             display: flex;
-            justify-content: space-between;
-            /* Alinea el logo a la izquierda y el menú a la derecha */
+            justify-content: space-between; 
             align-items: center;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
-        
+
         .logo-img {
-            height: 50px;
-            /* Ajusta el tamaño de tu logo */
+            height: 50px; 
             width: auto;
         }
-        
+
         .main-nav ul {
             list-style: none;
             padding: 0;
             margin: 0;
             display: flex;
         }
-        
+
         .main-nav ul li {
             margin-left: 20px;
         }
-        
+
         .main-nav ul li a {
             text-decoration: none;
             color: var(--color-texto);
@@ -66,48 +58,107 @@
             padding: 5px 10px;
             transition: color 0.3s;
         }
-        
+
         .main-nav ul li a:hover {
             color: var(--color-secundario);
         }
+
         /* --- Estilos de la Sección "Nosotros" --- */
-        
         .about-section {
-            background-color: var(--color-secundario);
+            background-color: var(--color-secundario); 
             color: var(--color-texto);
             padding: 80px 50px;
             text-align: center;
             border-bottom: 3px solid var(--color-primario);
         }
-        
+
         .about-section h1 {
             color: var(--color-texto);
             margin-bottom: 20px;
         }
+
         /* --- Estilos de la Sección del Mapa --- */
-        
         .map-section {
             padding: 50px;
             text-align: center;
             background-color: var(--color-fondo);
         }
-        
+
         .map-container {
             margin-top: 20px;
-            /* Centra el iframe en la página */
             display: flex;
-            justify-content: center;
+            justify-content: center; 
         }
-        /* Asegura que el iframe sea responsivo (se adapte al tamaño de la pantalla) */
-        
+
         .map-container iframe {
-            max-width: 100%;
-            height: 450px;
+            max-width: 100%; 
+            height: 450px; 
             border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
+
+        /* --- NUEVOS ESTILOS: Sección de Contacto/Agenda --- */
+        .contact-section {
+            padding: 80px 50px;
+            text-align: center;
+            background-color: var(--color-fondo); 
+        }
+
+        .contact-section h2 {
+            color: var(--color-primario);
+            margin-bottom: 30px;
+        }
+
+        .schedule-form {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 30px;
+            background-color: var(--color-secundario); /* Fondo rosa pastel para el formulario */
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            text-align: left;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: var(--color-texto);
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="date"],
+        .form-group input[type="time"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box; 
+            background-color: #ffffff; /* Fondo blanco para los campos */
+        }
+
+        .submit-button {
+            background-color: var(--color-primario); /* Botón verde menta pastel */
+            color: var(--color-texto);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+
+        .submit-button:hover {
+            background-color: #7abdae; 
+        }
+
         /* --- Estilos del Footer --- */
-        
         footer {
             background-color: var(--color-primario);
             color: var(--color-texto);
@@ -116,44 +167,69 @@
             margin-top: 30px;
         }
     </style>
-</head>
-
+    </head>
 <body>
 
     <header class="main-header">
         <div class="logo">
-            <img src="logo.jpeg" alt="Logo de la Empresa" class="logo-img">
+            <img src="logo.png" alt="Logo de la Empresa" class="logo-img"> 
         </div>
         <nav class="main-nav">
             <ul>
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#nosotros">Nosotros</a></li>
-                <li><a href="#servicios">Servicios</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
+                <li><a href="#ubicacion">Ubicación</a></li>
+                <li><a href="#contacto">Agenda</a></li> </ul>
         </nav>
     </header>
 
     <main>
         <section id="nosotros" class="about-section">
-            <h1> ReversaTech una Empresa Mexicana 🇲🇽</h1>
-            <p>encargada de **recolectar desechos**, comprometida con el medio ambiente y la comunidad. Ofrecemos soluciones eficientes y sostenibles para la gestión de residuos.</p>
+            <h1>Somos una Empresa Mexicana 🇲🇽</h1>
+            <p>encargada de recolectar desechos, comprometida con el medio ambiente y la comunidad. Ofrecemos soluciones eficientes y sostenibles para la gestión de residuos.</p>
         </section>
 
         <section id="ubicacion" class="map-section">
-            <h2>conocenos</h2>
+            <h2>📍 Nuestra Ubicación</h2>
             <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5311.338936118783!2d-98.466598052753!3d19.726082697703866!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d035b3db8ad589%3A0x9d3c53b05009a7e5!2sITESA%20-%20Polideportivo!5e0!3m2!1ses!2smx!4v1764522287757!5m2!1ses!2smx"
-                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5311.338936118783!2d-98.466598052753!3d19.726082697703866!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d035b3db8ad589%3A0x9d3c53b05009a7e5!2sITESA%20-%20Polideportivo!5e0!3m2!1ses!2smx!4v1764522287757!5m2!1ses!2smx" 
+                    width="600" 
+                    height="450" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
                 </iframe>
             </div>
+        </section>
+
+        <section id="contacto" class="contact-section">
+            <h2>Agenda tu Recolección</h2>
+            <form class="schedule-form">
+                <div class="form-group">
+                    <label for="name">Nombre:</label>
+                    <input type="text" id="name" name="name" required placeholder="Tu nombre completo">
+                </div>
+                
+                <div class="form-group">
+                    <label for="date">Fecha:</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="time">Hora:</label>
+                    <input type="time" id="time" name="time" required>
+                </div>
+                
+                <button type="submit" class="submit-button">Confirmar Agenda</button>
+            </form>
         </section>
     </main>
 
     <footer>
-        <p>© ReversaTech.</p>
+        <p>© 2024 Nombre de la Empresa. Todos los derechos reservados.</p>
     </footer>
 
 </body>
-
 </html>
