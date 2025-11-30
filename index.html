@@ -1,238 +1,329 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ReversaTech</title>
+    <title>ReversaTech - Página Principal</title>
 
     <style>
-        /* Colores Pastel Claros de Muestra */
-        :root {
-            --color-fondo: #f9f6f1;       /* Fondo principal muy claro (casi blanco) */
-            --color-primario: #a9d1c3;    /* Verde menta pastel */
-            --color-secundario: #f0c9c9;  /* Rosa claro pastel */
-            --color-texto: #333333;       /* Texto oscuro para contraste */
-            --color-texto-claro: #ffffff;
+        /* Variables de Colores */
+        
+         :root {
+            --color-header-bg: #03153c;
+            /* Azul oscuro */
+            --color-link: #ffffff;
+            /* Blanco para el menú */
+            --color-highlight: #ff9900;
+            /* Naranja/Ámbar para títulos */
+            --color-text: #333333;
+            --color-background: #f8f8f8;
         }
-
         /* Estilos Generales */
+        
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: var(--color-fondo);
-            color: var(--color-texto);
+            background-color: var(--color-background);
+            color: var(--color-text);
             line-height: 1.6;
         }
-
         /* --- Estilos del Header/Menú Superior --- */
+        
         .main-header {
-            background-color: var(--color-primario);
-            padding: 10px 50px;
-            display: flex;
-            justify-content: space-between; 
-            align-items: center;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            background-color: var(--color-header-bg);
+            padding: 15px 50px;
+            text-align: center;
+            position: sticky;
+            /* Fija el menú en la parte superior */
+            top: 0;
+            z-index: 100;
         }
-
-        .logo-img {
-            height: 50px; 
-            width: auto;
-        }
-
+        
         .main-nav ul {
             list-style: none;
             padding: 0;
             margin: 0;
             display: flex;
+            justify-content: center;
         }
-
+        
         .main-nav ul li {
-            margin-left: 20px;
+            margin: 0 15px;
         }
-
+        
         .main-nav ul li a {
             text-decoration: none;
-            color: var(--color-texto);
+            color: var(--color-link);
             font-weight: bold;
             padding: 5px 10px;
-            transition: color 0.3s;
+            transition: color 0.3s, border-bottom 0.3s;
         }
-
+        /* Clase 'active' para simular la página actual */
+        
+        .main-nav ul li .active {
+            border-bottom: 3px solid var(--color-link);
+        }
+        
         .main-nav ul li a:hover {
-            color: var(--color-secundario);
+            color: var(--color-highlight);
         }
-
-        /* --- Estilos de la Sección "Nosotros" --- */
-        .about-section {
-            background-color: var(--color-secundario); 
-            color: var(--color-texto);
-            padding: 80px 50px;
-            text-align: center;
-            border-bottom: 3px solid var(--color-primario);
-        }
-
-        .about-section h1 {
-            color: var(--color-texto);
-            margin-bottom: 20px;
-        }
-
-        /* --- Estilos de la Sección del Mapa --- */
-        .map-section {
-            padding: 50px;
-            text-align: center;
-            background-color: var(--color-fondo);
-        }
-
-        .map-container {
-            margin-top: 20px;
-            display: flex;
-            justify-content: center; 
-        }
-
-        .map-container iframe {
-            max-width: 100%; 
-            height: 450px; 
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        }
-
-        /* --- NUEVOS ESTILOS: Sección de Contacto/Agenda --- */
-        .contact-section {
-            padding: 80px 50px;
-            text-align: center;
-            background-color: var(--color-fondo); 
-        }
-
-        .contact-section h2 {
-            color: var(--color-primario);
+        /* Estilos de Título Común (Naranja) */
+        
+        .section-title {
+            font-size: 2.5em;
+            font-weight: 800;
+            color: var(--color-text);
             margin-bottom: 30px;
+            display: inline-block;
         }
-
-        .schedule-form {
-            max-width: 400px;
+        
+        .section-title span {
+            background-color: var(--color-highlight);
+            color: var(--color-text);
+            padding: 5px 10px;
+            line-height: 1.2;
+        }
+        /* ======================================= */
+        /* --- ESTILOS: SECCIÓN SOBRE NOSOTROS --- */
+        /* ======================================= */
+        
+        #sobre-nosotros {
+            padding: 50px 20px;
+            border-bottom: 5px solid #e0e0e0;
+        }
+        
+        .about-container {
+            display: flex;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 30px;
-            background-color: var(--color-secundario); /* Fondo rosa pastel para el formulario */
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            text-align: left;
+            align-items: flex-start;
         }
-
-        .form-group {
-            margin-bottom: 20px;
+        
+        .about-container .content-column {
+            padding: 20px;
         }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: bold;
-            color: var(--color-texto);
-        }
-
-        .form-group input[type="text"],
-        .form-group input[type="date"],
-        .form-group input[type="time"] {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-sizing: border-box; 
-            background-color: #ffffff; /* Fondo blanco para los campos */
-        }
-
-        .submit-button {
-            background-color: var(--color-primario); /* Botón verde menta pastel */
-            color: var(--color-texto);
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            font-weight: bold;
-            transition: background-color 0.3s;
-            width: 100%;
-        }
-
-        .submit-button:hover {
-            background-color: #7abdae; 
-        }
-
-        /* --- Estilos del Footer --- */
-        footer {
-            background-color: var(--color-primario);
-            color: var(--color-texto);
+        
+        .about-container .image-column {
+            flex: 1;
             text-align: center;
+        }
+        
+        .about-container .image-column img {
+            max-width: 80%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+        
+        .about-container .text-column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+        
+        .about-container .icon-pay {
+            float: left;
+            margin-right: 15px;
+            height: 25px;
+            width: auto;
+            vertical-align: middle;
+        }
+        /* --- NUEVOS ESTILOS PARA EL LOGO EN "SOBRE NOSOTROS" --- */
+        
+        .about-container .logo-small-centered {
+            height: 40px;
+            /* Tamaño más pequeño */
+            width: auto;
+            display: block;
+            /* Para que ocupe su propia línea */
+            margin: 0 auto 20px auto;
+            /* Centrar y añadir margen inferior */
+            clear: both;
+            /* Limpia cualquier float anterior si lo hubiera */
+        }
+        /* ======================================= */
+        /* --- ESTILOS: SECCIÓN SERVICIOS --- */
+        /* ======================================= */
+        
+        #servicios {
+            padding: 50px 20px;
+        }
+        
+        .services-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1.5fr 1fr;
+            gap: 20px;
+            align-items: flex-start;
+        }
+        
+        .services-container .center-column {
+            text-align: center;
+            padding-top: 20px;
+        }
+        
+        .services-container .main-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+        
+        .services-container .logo-small {
+            /* Este es el logo flotante en Servicios */
+            float: right;
+            height: 50px;
+            margin-bottom: 15px;
+        }
+        
+        .services-container .left-column,
+        .services-container .right-column {
             padding: 20px 0;
-            margin-top: 30px;
+        }
+        
+        .service-item {
+            margin-bottom: 40px;
+        }
+        
+        .service-item h3 {
+            color: var(--color-highlight);
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .service-item p {
+            font-size: 0.9em;
+        }
+        
+        .service-icon {
+            height: 30px;
+            width: 30px;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+        /* Media queries para responsividad */
+        
+        @media (max-width: 1000px) {
+            .about-container {
+                flex-direction: column;
+            }
+            .services-container {
+                grid-template-columns: 1fr;
+            }
+            .services-container .left-column,
+            .services-container .right-column {
+                padding: 20px 40px;
+            }
+            .about-container .image-column img {
+                max-width: 90%;
+                margin-bottom: 30px;
+            }
+            .main-header {
+                padding: 10px 20px;
+            }
         }
     </style>
-    </head>
+</head>
+
 <body>
 
     <header class="main-header">
-        <div class="logo">
-            <img src="logo.jpeg" alt="Logo de la Empresa" class="logo-img"> 
-        </div>
         <nav class="main-nav">
             <ul>
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#nosotros">Nosotros</a></li>
-                <li><a href="#ubicacion">Ubicación</a></li>
-                <li><a href="#contacto">Agenda</a></li> </ul>
+                <li><a href="#inicio">Página de Inicio</a></li>
+                <li><a href="#sobre-nosotros" class="active">Sobre Nosotros</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#">Testimonios</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
         </nav>
     </header>
 
-    <main>
-        <section id="nosotros" class="about-section">
-            <h1>ReversaTech una Empresa Mexicana 🇲🇽</h1>
-            <p>Encargada de recolectar desechos, comprometida con el medio ambiente y la comunidad. Ofrecemos soluciones eficientes y sostenibles para la gestión de residuos.</p>
-        </section>
+    <main id="inicio">
 
-        <section id="ubicacion" class="map-section">
-            <h2>VISITANOS</h2>
-            <div class="map-container">
-                <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5311.338936118783!2d-98.466598052753!3d19.726082697703866!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d035b3db8ad589%3A0x9d3c53b05009a7e5!2sITESA%20-%20Polideportivo!5e0!3m2!1ses!2smx!4v1764522287757!5m2!1ses!2smx" 
-                    width="600" 
-                    height="450" 
-                    style="border:0;" 
-                    allowfullscreen="" 
-                    loading="lazy" 
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
+        <section id="sobre-nosotros">
+            <div class="about-container">
+
+                <div class="image-column content-column">
+                    <img src="icon.jpg" alt="Reciclaje de dispositivos" class="main-image">
+                </div>
+
+                <div class="text-column content-column">
+                    <img src="logo.jpeg" alt="Logo ReversaTech" class="logo-small-centered">
+
+                    <h1 class="section-title"><span>Sobre Nosotros</span></h1>
+
+                    <p>
+                        <img src="pay.png" alt="Icono de Pago" class="icon-pay"> En **ReversaTech** creemos que cada dispositivo merece una segunda oportunidad.
+                    </p>
+
+                    <p>
+                        Somos una **app mexicana** enfocada en la **logística inversa electrónica**, que facilita a las personas entregar celulares, computadoras, cargadores y otros aparatos en puntos ecológicos, escuelas o centros de acopio certificados.
+                    </p>
+
+                    <p>
+                        Nuestra meta es **reducir la contaminación tecnológica**, fomentar el **reciclaje responsable** y conectar a las comunidades con empresas que gestionan adecuadamente los residuos electrónicos.
+                    </p>
+                </div>
+
             </div>
         </section>
 
-        <section id="contacto" class="contact-section">
-            <h2>Agenda tu Recolección</h2>
-            <form class="schedule-form">
-                <div class="form-group">
-                    <label for="name">Nombre:</label>
-                    <input type="text" id="name" name="name" required placeholder="Tu nombre completo">
+        <section id="servicios">
+            <div class="services-container">
+
+                <div class="left-column">
+                    <div class="service-item">
+                        <h3>
+                            <img src="taskicon.jpg" alt="Icono Recolección" class="service-icon"> Recolección a Domicilio
+                        </h3>
+                        <p>
+                            Pensamos en quienes no tienen tiempo o transporte. Con solo unos clics, puedes programar una visita para que nuestro equipo pase a recoger tus aparatos en casa, de forma segura y sin costo adicional.
+                        </p>
+                    </div>
+
+                    <div class="service-item">
+                        <h3>
+                            <img src="ticon.jpg" alt="Icono Entrega" class="service-icon"> Entrega en Puntos Ecológicos
+                        </h3>
+                        <p>
+                            Sabemos que muchas personas prefieren llevar sus aparatos directamente a un Punto Ecológico, por eso nuestra app muestra un mapa con los centros de recolección más cercanos a tu ubicación. Cada punto está certificado para garantizar que tus dispositivos
+                            se manejen de forma responsable y ecológica.
+                        </p>
+                    </div>
                 </div>
-                
-                <div class="form-group">
-                    <label for="date">Fecha:</label>
-                    <input type="date" id="date" name="date" required>
+
+                <div class="center-column">
+
+                    <img src="logo.jpeg" alt="Logo ReversaTech" class="logo-small">
+
+                    <h1 class="section-title"><span>Servicios</span></h1>
+
+                    <img src="l.avif" alt="Mujer hablando por teléfono" class="main-image">
                 </div>
-                
-                <div class="form-group">
-                    <label for="time">Hora:</label>
-                    <input type="time" id="time" name="time" required>
+
+                <div class="right-column">
+                    <div class="service-item">
+                        <h3>
+                            <img src="cer.svg" alt="Icono Certificado" class="service-icon"> Certificado Verde Digital
+                        </h3>
+                        <p>
+                            Cada vez que entregas un aparato, recibirás un Certificado Verde, un comprobante digital que demuestra tu aporte al medio ambiente y te motiva a seguir reciclando.
+                        </p>
+                    </div>
                 </div>
-                
-                <button type="submit" class="submit-button">Confirmar Agenda</button>
-            </form>
+
+            </div>
         </section>
+
     </main>
 
-    <footer>
-        <p>© ReversaTech.</p>
-    </footer>
-
 </body>
+
 </html>
-
-
-
